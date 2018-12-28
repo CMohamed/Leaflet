@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+    <title>Mapping CM</title>
+</head>
+<body>
+
+    <div class="container spacer">
+        <h1 style="text-align: center">CM plateform</h1>
+        <div id="mapid"></div>
+        <br>
+        <form>
+            <!--
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="csv" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="csv">Choose file</label>
+                </div>
+            </div>
+
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                <div class="invalid-feedback">Example invalid custom file feedback</div>
+            </div>
+            -->
+            <br>
+            <input type="file" id="fileUpload">
+
+        </form>
+        <button onclick="Upload()"> Upload </button>
+        <div class="container">
+            <div id="dvCSV">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/leaflet/jquery-1.10.1.min.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <script src="js/leaflet/leaflet.js"></script>
+
+    <script src="js/leaflet/leaflet-gps.js"></script>
+
+    <script src="js/leaflet/leaflet-measure.min.js"></script>
+    <script src="js/leaflet/leaflet-search.js"></script>
+    <script src="js/leaflet/Leaflet.Coordinates-0.1.5.min.js"></script>
+
+    <!--
+    <script src="js/leaflet/handlers.js"></script>
+    -->
+
+
+
+
+    <script src="js/map.js"></script>
+
+</body>
+</html>

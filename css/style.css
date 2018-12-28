@@ -1,0 +1,7 @@
+.spacer{
+    margin: 15px;
+}
+#mapid {
+    height: 300px;
+    border: 1px solid #005cbf;
+}
