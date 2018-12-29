@@ -1,19 +1,11 @@
 var mymap = L.map('mapid', {
-    zoomslider :true,
-    zoomControle : false,
-    minZoom: 4
+    closePopupOnClick:false
     }).setView([33, -7], 7);
 
-var customPopup = "<p>the value of this point :</p>";
-var customOptions =
-    {
-        'maxWidth': '500',
-        'className' : 'custom'
-    };
 
-var marker = L.marker([33, -7]).bindPopup(customPopup,customOptions).addTo(mymap);
 
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+//marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 
 function addPoint(long, lat){
     L.marker([long, lat]).addTo(mymap);
@@ -32,7 +24,11 @@ world = L
         {
             attribution : 'Esri'
         });
-streets.addTo(mymap);
+//streets.addTo(mymap);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(mymap);
 
 // Add Group Layers Control
 
@@ -48,6 +44,8 @@ L.control.layers(baseMaps).addTo(mymap);
 
 Points = {};
 ListPoints =[];
+popup = [];
+mrk = [];
 
 function Upload() {
 
@@ -97,17 +95,31 @@ function Upload() {
 
                 }
                 console.log(Points);
+
+                // affichage des points
+
                 for(var i=0; i<ListPoints.length; i++){
                     //var myMarker = L.marker(pt).addTo(mymap);
                     //myMarker.bindPopup("<b>the value of this point :</b>").openPopup();
 
-                    var mrk = L.marker(pt).bindPopup(customPopup,customOptions).openPopup();
+                    popup[i] = L.popup({
+                        closeButton: true,
+                        autoClose: false
+                    })
+                        .setLatLng(ListPoints[i])
+                        .setContent('<p>commandes : '+Points[ListPoints[i]]+' </p><br><br><br>')
+                        .openOn(mymap);
 
-                    mrk.on('click', function (e) {
-                        console.log('hhhhhhhhhhh')
-                        this.openPopup();
+                    mrk[i] = L.marker(ListPoints[i]);
+                    mrk[i].bindPopup("hhhhh").openPopup();
+
+
+                    mrk[i].addTo(mymap);
+                    mrk[i].on('click', function () {
+                        console.log('hhhhhhhhhhh');
                     });
-                    mrk.addTo(mymap);
+
+
                 }
                 var dvCSV = document.getElementById("dvCSV");
 
